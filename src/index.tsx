@@ -43,7 +43,7 @@ function populate<P extends object, S extends object = any>(
         populate({ ...props as object, ...fetchedData });
       }, []);
 
-      return <WrappedComponent { ...props } { ...fetchedData } repopulate={populate} />;
+      return <WrappedComponent {...props} {...fetchedData as S & InjectedPopulateProps<P>} repopulate={populate} />;
     };
   };
 }
